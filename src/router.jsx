@@ -3,7 +3,6 @@ import { createBrowserRouter } from 'react-router-dom'
 import AppLayout from '@/components/layout/AppLayout'
 
 import Home from '@/pages/Home'
-import Manual from '@/pages/Manual'
 
 import Dashboard from '@/pages/Dashboard'
 import CityPage from '@/pages/CityPage'
@@ -15,7 +14,6 @@ const router = createBrowserRouter([
     element: <AppLayout />,
     children: [
       { index: true, element: <Home /> },
-      { path: 'manual', element: <Manual /> },
 
       {
         path: 'dashboard',

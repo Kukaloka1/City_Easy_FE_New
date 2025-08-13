@@ -9,9 +9,8 @@ import SurfWidget from '@/features/surf/SurfWidget'
 import TutorialSlider from '@/features/tutorial/TutorialSlider'
 import HeatMap from '@/features/map/HeatMap'
 import SecurityReport from '@/features/security/SecurityReport'
-import Modal from '@/components/ui/Modal' // <- usa el Modal con portal/z-index
+import Modal from '@/components/ui/Modal'
 import SupportCityEasy from '@/features/support/SupportCityEasy'
-
 
 export default function CityPage() {
   const { slug } = useParams()
@@ -33,7 +32,6 @@ export default function CityPage() {
 
   // submit state
   const [submitting, setSubmitting] = useState(false)
-
 
   useEffect(() => {
     if (!city) return
@@ -83,12 +81,10 @@ export default function CityPage() {
     )
   }
 
-
   const onSubmitReport = async (payload) => {
     try {
       setSubmitting(true)
       await createIncident(payload)
-      // refetch tras enviar
       const items = await getRecentIncidents(city.slug, 20)
       setIncidents(Array.isArray(items) ? items : [])
     } finally {
@@ -97,9 +93,9 @@ export default function CityPage() {
   }
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8">
+    <div className="mx-auto max-w-7xl px-4 py-8 space-y-8">
       {/* Top bar */}
-      <div className="mb-4 flex items-center justify-between">
+      <div className="mb-2 flex items-center justify-between">
         <Link to="/dashboard" className="rounded-lg border px-3 py-1 text-sm hover:bg-slate-50">
           ← {t('bali.changeCity')}
         </Link>
@@ -123,54 +119,63 @@ export default function CityPage() {
       </div>
 
       {/* Header */}
-      <header className="mb-6">
+      <header className="space-y-1">
         <h1 className="text-3xl font-extrabold" dangerouslySetInnerHTML={{ __html: t('bali.header.title') }} />
         <p className="text-slate-600" dangerouslySetInnerHTML={{ __html: t('bali.header.subtitle') }} />
       </header>
 
-      {/* Mapa (único) */}
+      {/* Mapa */}
       <section className="space-y-3">
         <h2 className="text-xl font-bold">{t('bali.sections.mapTitle')}</h2>
         <HeatMap
           incidents={incidents}
           center={city.center || undefined}
-          interactive={!(openReport || showTutorial)}   // <- bloquea interacción con modales
+          interactive={!(openReport || showTutorial)}
         />
       </section>
 
-      {/* Summary + Recent */}
-      <section className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-        <div className="rounded-xl border bg-white p-4">
-          <h3 className="mb-3 text-lg font-bold">{t('bali.sections.summaryTitle')}</h3>
-          {loading ? <p className="text-slate-500">Loading…</p> : <IncidentSummary incidents={incidents} />}
-        </div>
+      {/* Incident Summary – ancho completo (cinta horizontal) */}
+      <section className="rounded-xl border bg-white p-4">
+        <h3 className="mb-3 text-lg font-bold">{t('bali.sections.summaryTitle')}</h3>
+        {loading ? (
+          <p className="text-slate-500">Loading…</p>
+        ) : (
+          <IncidentSummary incidents={incidents} />
+        )}
+      </section>
 
-        <div className="rounded-xl border bg-white p-4">
-          <h3 className="mb-3 text-lg font-bold">{t('bali.sections.recentTitle')}</h3>
-          {error && <p className="mb-2 text-sm text-rose-600">Error: {error}</p>}
-          {loading && <p className="text-slate-500">Loading…</p>}
-          {!loading && <RecentIncidents incidents={incidents} />}
+      {/* Recent Incidents – ancho completo (masonry) */}
+      <section className="rounded-xl border bg-white p-4">
+        <div className="mb-3 flex items-center justify-between">
+          <h3 className="text-lg font-bold">{t('bali.sections.recentTitle')}</h3>
         </div>
+        {error && <p className="mb-2 text-sm text-rose-600">Error: {error}</p>}
+        {loading ? (
+          <p className="text-slate-500">Loading…</p>
+        ) : (
+          <RecentIncidents incidents={incidents} layout="uniform" />
+
+        )}
       </section>
 
       {/* AI Safety Summary */}
-      <section className="mt-8">
+      <section>
         <SecurityReport />
       </section>
 
       {/* Surf opcional */}
       {city.features.surf && (
-        <section id="surf" className="mt-8">
+        <section id="surf">
           <SurfWidget />
         </section>
       )}
 
       {/* Support */}
-      <section className="mt-8">
+      <section>
         <SupportCityEasy />
       </section>
 
-      {/* Tutorial modal simple */}
+      {/* Tutorial modal */}
       {showTutorial && (
         <Modal isOpen={showTutorial} onClose={() => setShowTutorial(false)} title={t('bali.buttons.tutorial')}>
           <TutorialSlider onClose={() => setShowTutorial(false)} />
