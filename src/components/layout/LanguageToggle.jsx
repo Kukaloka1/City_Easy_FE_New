@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 
 export default function LanguageToggle(){
   const { i18n } = useTranslation()
-  const langs = ['en','id','es']
+  const langs = ['en','id']
   return (
     <div className="fixed right-4 top-4 z-50 flex gap-1 rounded-xl border bg-white/80 px-1.5 py-1 text-xs font-semibold shadow">
       {langs.map(l => (

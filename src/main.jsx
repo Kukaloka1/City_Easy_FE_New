@@ -1,4 +1,4 @@
-import "./i18n/index.js"            // <-- cargar i18n primero
+import "./i18n/index.js"
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
