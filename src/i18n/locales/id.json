@@ -1,0 +1,231 @@
+{
+    "home": {
+      "loading": "Memuat…",
+      "hero": {
+        "title": { "part1": "CITY", "part2": "EASY" },
+        "yellowSubtitle": "PERINGATAN WARGA CERDAS",
+        "subtitle": "Anonim · Instan · Tindak-Lanjut",
+        "tagline1": "Jaringan peringatan perkotaan <strong>real-time dan mengutamakan privasi</strong> pertama yang dibuat untuk <b>Asia Tenggara.</b>",
+        "tagline2": "Lalu lintas, kriminalitas, bencana — dan di Bali, <strong>Laporan Selancar AI</strong> eksklusif. Satu feed. Tanpa kebisingan. Didukung AI generasi terbaru."
+      },
+      "ctaPrimary": "Mulai Gratis Sekarang",
+      "gapTitle": "Masalah yang Kami Pecahkan",
+      "gapLi1": "600 juta+ penduduk Asia Tenggara menghadapi kemacetan, kejahatan terselubung, dan bahaya mendadak setiap hari.",
+      "gapLi2": "Peringatan datang terlambat atau lewat media sosial kacau — kepercayaan & waktu reaksi hilang.",
+      "gapLi3": "Belum ada sumber denyut kota yang andal secara real-time. Hingga sekarang.",
+      "solutionTitle": "Solusi Kami",
+      "solutionLi1": "<strong>Feed bertenaga warga</strong> — foto, kirim, selesai. Tanpa daftar akun.",
+      "solutionLi2": "<strong>Denyut AI tiap 15 menit</strong> — tren, titik panas, peta risiko.",
+      "solutionLi3": "Multibahasa. Super cepat. Untuk penduduk, turis, dan responden pertama.",
+      "missionTitle": "Misi Kami",
+      "missionP1": "Menjadikan setiap warga sebagai sensor kota yang aman. Demokratisasi data penyelamat nyawa.",
+      "missionP2": "CityEasy bukan sekadar aplikasi — ini gerakan sipil, lahir di Asia Tenggara, digerakkan teknologi, dipacu oleh masyarakat.",
+      "features": {
+        "card1": { "title": "Feed Langsung Anonim", "desc": "Tanpa akun. Tanpa gesekan. Intel crowdsourced murni saat kejadian." },
+        "card2": { "title": "Pemetaan Foto-Terverifikasi", "desc": "Setiap peringatan dilokasikan & didukung foto — tanpa foto, tak tayang. Kredibilitas sekejap." },
+        "card3": { "title": "Sentinel AI 15 Menit", "desc": "Agen AI kami mencerna tiap laporan <b>setiap 15 menit</b>, mengirim ringkasan eksekutif & heat-map — sebelum rumor menyebar." },
+        "card4": { "title": "Kopilot Keamanan Percakapan", "desc": "Tanya apa saja — hukum, rute aman, bahkan ombak Bali — AI menjawab dalam hitungan detik, dalam bahasa Anda." },
+        "card5": { "title": "Dasbor Wawasan Real-Time", "desc": "Heat-map langsung, kurva tren, dan titik panas agar Anda bertindak, bukan bereaksi." },
+        "card6": { "title": "Lahir di SEA, Siap Global", "desc": "Inggris · Bahasa · Spanyol hari ini — Khmer, Thai & Tagalog segera." }
+      },
+      "citiesTitle": "Kota Live & Berikutnya",
+      "citiesDesc1": "Peluncuran kian cepat — jadilah gelombang pertama.",
+      "cities": {
+        "bali": "SUDAH LIVE peringatan keselamatan warga & laporan AI — kini dengan prakiraan selancar AI eksklusif (hanya Bali).",
+        "jakarta": "Ekspansi 2025 dengan pemantauan lalu lintas.",
+        "bangkok": "Rencana peluncuran dengan pelacakan bencana.",
+        "singapore": "Segera hadir dengan fitur keselamatan perkotaan.",
+        "kl": "Siap diluncurkan dengan wawasan bertenaga AI.",
+        "danang": "Akan hadir dengan dukungan multibahasa."
+      },
+      "howTitle": "Cara Kerja CityEasy",
+      "how": {
+        "step1": { "title": "Masuk Secara Anonim", "desc": "Satu ketukan, tanpa data pribadi. Pilih kota dan akses feed langsung <5 detik." },
+        "step2": { "title": "Foto & Kirim", "desc": "Melihat insiden? Pilih jenis, ambil foto, geo-tag otomatis, kirim. <em>10 detik saja.</em>" },
+        "step3": { "title": "Lapisan Kepercayaan AI + Manusia", "desc": "Mesin validasi ganda menyaring noise & memastikan kredibilitas sebelum tayang <strong>live.</strong>" },
+        "step4": { "title": "Kuasai Denyut Kota", "desc": "Sentinel AI 15 menit kami mengubah peringatan mentah menjadi tren, heat-map & tips keselamatan personal — agar Anda bertindak, bukan bereaksi." }
+      },
+      "ctaBlockTitle": "Siap menguasai denyut kota Anda?",
+      "ctaBlockBtn": "Mulai Gratis dalam 30 detik",
+      "faq": {
+        "title": "Pertanyaan? Kami siap jawab.",
+        "q1": "Apakah identitas saya benar-benar anonim?",
+        "a1": "Ya. Kami tidak mengumpulkan nama, nomor telepon, atau ID perangkat. Laporan Anda 100% anonim dan terenkripsi.",
+        "q2": "Bisakah saya melapor jika hanya berkunjung?",
+        "a2": "Anda bisa melihat peringatan di semua kota, tetapi untuk mengirim laporan Anda harus berada di negara tersebut.",
+        "q3": "Jenis laporan apa yang bisa saya kirim?",
+        "a3": "Lalu lintas, kriminalitas, kecelakaan, kebakaran, demo, penutupan jalan, cuaca, dan lainnya. Pilih tipe, tulis, foto, kirim.",
+        "q4": "Apa yang AI lakukan dengan laporan saya?",
+        "a4": "Setiap 15 menit, AI kami menganalisis semua laporan untuk mendeteksi tren, memverifikasi kredibilitas, dan memperbarui dasbor publik.",
+        "q5": "Bisakah saya berkolaborasi atau berdonasi ke CityEasy?",
+        "a5": "Tentu. CityEasy adalah proyek civic-tech independen — kami menyambut dukungan komunitas untuk menjaga platform tetap berjalan dan berkembang.<br><br>Anda dapat berdonasi langsung via <strong>Bitcoin</strong> atau <strong>Lightning Network</strong> guna mendukung infrastruktur, biaya server, dan peluncuran kota baru.<br><br>Donasi bersifat <strong>anonim, tanpa batas</strong>, membantu kami tetap independen dari agenda politik maupun korporat."
+      },
+      "footer": {
+        "brand": "© 2025 <span class=\"cityeasy-home-footer-app-name\">CityEasy</span> – Keamanan Kota Cerdas untuk Asia Tenggara",
+        "about": "Tentang",
+        "contact": "Kontak",
+        "privacy": "Kebijakan Privasi",
+        "terms": "Syarat & Ketentuan",
+        "credit": "keren lainnya dari <span class=\"cityeasy-home-footer-company\">Bittech Network</span>"
+      }
+    },
+    "dashboard": {
+      "title": "Selamat datang di <span class=\"cityeasy-highlight\">CityEasy</span>",
+      "subtitle": {
+        "line1": "Keamanan bertenaga warga, peta real-time & pelaporan instan.",
+        "line2": "Pilih kota Anda untuk mulai:"
+      },
+      "contact": "Ingin kota Anda ada di sini? <a href=\"mailto:info@cityeasy.org\" class=\"dashboard-contact-link\">Hubungi kami</a>",
+      "cities": {
+        "bali": "Penjaga untuk Bali",
+        "jakarta": "Kota Besar, Keamanan Besar",
+        "bangkok": "Tetap aman, Bangkok!",
+        "singapore": "Singapura, selalu waspada",
+        "danang": "Da Nang, lebih aman bersama",
+        "kl": "KL Watch: Penjaga Komunitas"
+      }
+    },
+    "incidentTypes": {
+      "total": "Total Laporan",
+      "accident": "Kecelakaan Lalu Lintas",
+      "traffic": "Kemacetan",
+      "crime": "Perampokan",
+      "disaster": "Bencana Alam",
+      "weather": "Cuaca Ekstrem"
+    },
+    "map": {
+      "openFilters": "Filter Insiden",
+      "closeFilters": "Tutup Filter"
+    },
+    "bali": {
+      "changeCity": "← Ganti Kota",
+      "header": {
+        "title": "CityEasy <span class=\"bali-header-bali\">| Bali</span>",
+        "subtitle": "Panel Keamanan Kota Real-time untuk <strong>Bali</strong>"
+      },
+      "buttons": {
+        "tutorial": "Tutorial Cepat",
+        "logout": "Keluar",
+        "report": "Laporkan Insiden Baru",
+        "surf": "Laporan Selancar AI",
+        "support": "Dukung CityEasy",
+        "copy": "Salin"
+      },
+      "sections": {
+        "mapTitle": "Peta Insiden (Bali)",
+        "summaryTitle": "Ringkasan Insiden",
+        "recentTitle": "Insiden Terbaru"
+      },
+      "currentTime": "Waktu saat ini di Bali: {{time}}",
+      "timeAgo": "lalu",
+      "reportedOn": "Dilaporkan pada:",
+      "resolving": "Memuat lokasi...",
+      "noCoords": "Tidak ada koordinat",
+      "loading": {
+        "logout": "Keluar...",
+        "generic": "Memuat..."
+      },
+      "donation": {
+        "note": "Donasi membantu menjaga platform kami tetap berjalan.",
+        "copied": "Alamat disalin!"
+      },
+      "errors": {
+        "fetchIncidents": "Gagal mengambil insiden. Coba lagi nanti.",
+        "enableLocation": "Aktifkan lokasi untuk mengirim laporan.",
+        "noGeolocation": "Peramban ini tidak mendukung geolokasi.",
+        "submit": "Gagal mengirim laporan. Coba lagi."
+      }
+    },
+    "report": {
+      "title": "Laporkan Insiden Baru",
+      "note": "<strong>Catatan:</strong> Anda harus <u>mengaktifkan akses lokasi</u> untuk mengirim laporan.",
+      "typeLabel": "Jenis Insiden:",
+      "descLabel": "Deskripsi:",
+      "photoLabel": "Foto insiden:",
+      "locationLabel": "Lokasi",
+      "getLocation": "Dapatkan lokasi saat ini",
+      "locationOk": "Lokasi tersimpan ✓",
+      "locationDenied": "Izin lokasi ditolak. Aktifkan di Pengaturan → Privasi → Layanan Lokasi lalu coba lagi.",
+      "locationError": "Tidak dapat menentukan lokasi. Coba lagi atau masukkan secara manual.",
+    
+      "selectType": "Pilih jenis",
+      "selectPhoto": "Pilih foto",
+      "changePhoto": "Ganti foto",
+      "submit": "Kirim Laporan",
+      "submitting": "Mengirim...",
+      "errors": {
+        "noType": "Silakan pilih jenis insiden.",
+        "badDescription": "Deskripsi wajib dan maksimal {{max}} karakter.",
+        "noLocation": "Tidak dapat memperoleh lokasi Anda. Coba lagi.",
+        "noPhoto": "Silakan lampirkan foto insiden.",
+        "submit": "Gagal mengirim laporan. Coba lagi."
+      }
+    },
+    "tutorial": {
+      "close": "Tutup Tutorial",
+      "slides": {
+        "0": {
+          "title": "Peta Insiden Real-Time",
+          "content": "Lihat insiden langsung di Asia Tenggara. Pin berwarna menandai polisi (biru), kecelakaan/kemacetan (oranye), kriminal (merah), bencana (hijau), dan cuaca (biru muda)."
+        },
+        "1": {
+          "title": "Laporan Anonim",
+          "content": "Laporkan insiden dalam hitungan detik: pilih jenis, tulis catatan singkat, bagikan lokasi, dan unggah foto. Laporan anonim Anda langsung memperbarui peta."
+        },
+        "2": {
+          "title": "Wawasan Keamanan AI",
+          "content": "Setiap 15 menit AI kami menampilkan tren, zona risiko, dan tips perjalanan agar Anda bergerak lebih cerdas."
+        },
+        "3": {
+          "title": "Asisten AI Instan",
+          "content": "Tanya apa saja—hukum, rute aman, risiko terkini—dan dapatkan jawaban cepat dalam bahasa Anda."
+        },
+        "4": {
+          "title": "Privasi & Perlindungan Data",
+          "content": "Laporan 100 % anonim; kami tak pernah menyimpan data pribadi. Bagikan lokasi hanya saat Anda setuju."
+        },
+        "5": {
+          "title": "Peringatan Lalu Lintas & Kecelakaan",
+          "content": "Selalu terdepan soal kemacetan dan kecelakaan. Cocok bagi warga, turis, dan pengemudi."
+        },
+        "6": {
+          "title": "Peringatan Cuaca & Bencana",
+          "content": "Peringatan komunitas untuk badai, banjir, atau gempa membuat Anda siap menghadapi bahaya mendadak."
+        },
+        "7": {
+          "title": "Dukung CityEasy",
+          "content": "CityEasy digerakkan komunitas. Donasi Bitcoin atau Lightning menjaga server berjalan dan memperluas cakupan."
+        }
+      }
+    },
+    "security": {
+      "title": "Ringkasan Keamanan AI CityEasy",
+      "latest": "Analisis Keamanan Terbaru (diperbarui tiap 15 menit)",
+      "lastUpdate": "Pembaruan terakhir: {{date}}",
+      "noReport": "Tidak ada laporan keamanan tersedia.",
+      "askAI": "Tanya Asisten AI CityEasy",
+      "placeholder": "Tanyakan situasi terkini…",
+      "empty": "Ketik pesan sebelum mengirim.",
+      "errorLoad": "Gagal memuat laporan keamanan. Coba lagi nanti.",
+      "errorChat": "Maaf, terjadi masalah. Coba lagi nanti."
+    },
+    "surf": {
+      "title": "Laporan Selancar AI",
+      "refresh": "diperbarui tiap 2 jam",
+      "hint": "Butuh detail terbaru? Tanya chatbot: “Bagaimana ombak di Uluwatu?”",
+      "lastFetch": "Pengambilan terakhir: {{time}} WITA",
+      "waveHeight": "Tinggi Gelombang",
+      "period": "Periode",
+      "swell": "Swell",
+      "dir": "Arah",
+      "wind": "Angin",
+      "powered": "Didukung oleh"
+    }
+  }
+  
+  
+      
+      
+  
+  
+  
