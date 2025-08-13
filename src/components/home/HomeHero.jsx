@@ -1,12 +1,11 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import LanguageToggle from '@/components/layout/LanguageToggle'
 
 export default function HomeHero({ onCTA, isLoading }) {
   const { t } = useTranslation()
   return (
     <section className="relative grid min-h-[74vh] items-center overflow-hidden" data-aos="fade-up">
-      <LanguageToggle />
+      
       {/* BG logo izq */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-0 top-0 h-full w-[56vw] flex items-center justify-center">

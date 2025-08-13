@@ -19,7 +19,7 @@ export default function Home(){
 
   const handleCTA = () => {
     setIsLoading(true)
-    setTimeout(()=> navigate('/bali', { replace: false }), 400)
+    setTimeout(()=> navigate('/dashboard', { replace: false }), 300)
   }
 
   return (
