@@ -1,13 +1,15 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { cities } from '@/cities/config'
 import MapPlaceholder from '@/features/map/MapPlaceholder'
+import TutorialSlider from '@/features/tutorial/TutorialSlider'
 
 export default function CityPage(){
   const { slug } = useParams()
   const { t } = useTranslation()
   const city = useMemo(()=> cities[slug], [slug])
+  const [showTutorial, setShowTutorial] = useState(false)
 
   if(!city){
     return (
@@ -24,6 +26,12 @@ export default function CityPage(){
       <div className="mb-4 flex items-center justify-between">
         <Link to="/dashboard" className="rounded-lg border px-3 py-1 text-sm hover:bg-slate-50">← {t('bali.changeCity')}</Link>
         <div className="flex items-center gap-2">
+          <button
+            onClick={()=> setShowTutorial(true)}
+            className="rounded-lg border px-3 py-1 text-sm font-semibold hover:bg-slate-50"
+          >
+            {t('bali.buttons.tutorial')}
+          </button>
           {city.features.surf && (
             <a href="#surf" className="rounded-lg border px-3 py-1 text-sm font-semibold hover:bg-slate-50">AI Surf</a>
           )}
@@ -36,13 +44,11 @@ export default function CityPage(){
         <p className="text-slate-600" dangerouslySetInnerHTML={{ __html: t('bali.header.subtitle') }} />
       </header>
 
-      {/* Mapa */}
       <section className="space-y-3">
         <h2 className="text-xl font-bold">{t('bali.sections.mapTitle')}</h2>
         <MapPlaceholder city={city} />
       </section>
 
-      {/* Summary / Recent (placeholders) */}
       <section className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
         <div className="rounded-xl border bg-white p-4">
           <h3 className="text-lg font-bold">{t('bali.sections.summaryTitle')}</h3>
@@ -54,12 +60,15 @@ export default function CityPage(){
         </div>
       </section>
 
-      {/* Surf only if enabled */}
       {city.features.surf && (
         <section id="surf" className="mt-8 rounded-xl border bg-white p-4">
           <h3 className="text-lg font-bold">{t('surf.title')}</h3>
           <p className="mt-2 text-slate-500">{t('surf.hint')}</p>
         </section>
+      )}
+
+      {showTutorial && (
+        <TutorialSlider onClose={()=> setShowTutorial(false)} />
       )}
     </div>
   )

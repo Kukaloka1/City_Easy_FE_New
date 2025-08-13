@@ -1,8 +1,10 @@
 import React from 'react'
-import { Outlet, Link } from 'react-router-dom'
+import { Outlet, Link, useNavigate } from 'react-router-dom'
 import AuthDebugBadge from '@/components/auth/AuthDebugBadge'
 
 export default function AppLayout(){
+  const nav = useNavigate()
+
   return (
     <div className="min-h-screen bg-slate-50">
       <header className="border-b bg-white">
@@ -12,16 +14,12 @@ export default function AppLayout(){
             <span className="text-lg font-black tracking-tight">CityEasy</span>
           </Link>
           <nav className="flex items-center gap-4 text-sm font-semibold">
-            <Link className="hover:underline" to="/dashboard">Dashboard</Link>
+            <button onClick={()=> nav('/dashboard')} className="hover:underline">Login</button>
             <Link className="hover:underline" to="/manual">Manual</Link>
           </nav>
         </div>
       </header>
-
-      <main>
-        <Outlet />
-      </main>
-
+      <main><Outlet /></main>
       <AuthDebugBadge />
     </div>
   )
