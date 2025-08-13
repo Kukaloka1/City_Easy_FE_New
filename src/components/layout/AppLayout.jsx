@@ -1,23 +1,28 @@
 import React from 'react'
-import { Outlet, Link, NavLink } from 'react-router-dom'
+import { Outlet, Link } from 'react-router-dom'
+import AuthDebugBadge from '@/components/auth/AuthDebugBadge'
 
 export default function AppLayout(){
   return (
-    <div className="min-h-dvh bg-[#eef2f7] text-[#0f172a]">
-      <header className="border-b bg-white/70 backdrop-blur">
-        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-          <Link to="/" className="font-black text-xl">CityEasy</Link>
-          <nav className="flex items-center gap-4 text-sm">
-            <NavLink to="/bali" className={({isActive}) => isActive ? 'text-blue-600' : 'hover:text-blue-600'}>Bali</NavLink>
+    <div className="min-h-screen bg-slate-50">
+      <header className="border-b bg-white">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+          <Link to="/" className="flex items-center gap-2">
+            <img src="/city.svg" alt="CityEasy" className="h-8 w-8" />
+            <span className="text-lg font-black tracking-tight">CityEasy</span>
+          </Link>
+          <nav className="flex items-center gap-4 text-sm font-semibold">
+            <Link className="hover:underline" to="/dashboard">Dashboard</Link>
+            <Link className="hover:underline" to="/manual">Manual</Link>
           </nav>
         </div>
       </header>
-      <main className="container mx-auto px-4 py-6">
+
+      <main>
         <Outlet />
       </main>
-      <footer className="border-t text-center text-xs text-slate-500 py-6">
-        © {new Date().getFullYear()} CityEasy
-      </footer>
+
+      <AuthDebugBadge />
     </div>
   )
 }
