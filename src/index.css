@@ -26,3 +26,50 @@
 /* src/index.css */
 .leaflet-container { z-index: 0; } /* el modal ya va a 10000 */
 
+/* === Prosa bonita para Markdown === */
+.markdown-prose {
+  color: #0f172a; /* slate-900 */
+  line-height: 1.65;
+  font-size: 0.95rem;
+}
+.markdown-prose h1,
+.markdown-prose h2,
+.markdown-prose h3 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 1.2rem 0 0.6rem;
+  color: #0b1324;
+}
+.markdown-prose h1 { font-size: 1.35rem; }
+.markdown-prose h2 { font-size: 1.2rem; }
+.markdown-prose h3 { font-size: 1.05rem; }
+
+.markdown-prose p { margin: 0.6rem 0; }
+.markdown-prose ul, .markdown-prose ol { margin: 0.5rem 0 0.8rem 1.2rem; }
+.markdown-prose li { margin: 0.25rem 0; }
+.markdown-prose strong { font-weight: 800; }
+.markdown-prose em { font-style: italic; }
+
+.markdown-prose code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  background: #f1f5f9; /* slate-100 */
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.35rem;
+  font-size: 0.9em;
+}
+.markdown-prose blockquote {
+  border-left: 4px solid #cbd5e1; /* slate-300 */
+  padding-left: 0.8rem;
+  color: #334155; /* slate-700 */
+  margin: 0.8rem 0;
+}
+.markdown-prose hr {
+  height: 1px; border: 0; background: #e2e8f0; margin: 1rem 0;
+}
+
+/* Markdown refinado */
+.prose :where(h1,h2,h3){ font-weight:800; letter-spacing:-0.02em; }
+.prose :where(p,li){ color:#0f172a; }            /* slate-900 */
+.prose strong{ color:#0b1324; }                  /* un pelín más oscuro */
+.prose code{ background:#f8fafc; padding:.15rem .35rem; border-radius:.35rem; }
+.prose blockquote{ border-left-color:#e2e8f0; color:#334155; }
