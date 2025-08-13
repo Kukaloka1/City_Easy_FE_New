@@ -3,7 +3,6 @@ import { createBrowserRouter } from 'react-router-dom'
 import AppLayout from '@/components/layout/AppLayout'
 
 import Home from '@/pages/Home'
-import Bali from '@/pages/Bali'       // demo visual pública (si la estás usando)
 import Manual from '@/pages/Manual'
 
 import Dashboard from '@/pages/Dashboard'
@@ -16,7 +15,6 @@ const router = createBrowserRouter([
     element: <AppLayout />,
     children: [
       { index: true, element: <Home /> },
-      { path: 'bali', element: <Bali /> },     // libre para diseño (opcional)
       { path: 'manual', element: <Manual /> },
 
       {

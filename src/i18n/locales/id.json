@@ -125,9 +125,14 @@
         "logout": "Keluar...",
         "generic": "Memuat..."
       },
-      "donation": {
-        "note": "Donasi membantu menjaga platform kami tetap berjalan.",
-        "copied": "Alamat disalin!"
+      "support": {
+        "title": "Dukung CityEasy",
+        "cta": "Tampilkan opsi",
+        "hide": "Sembunyikan",
+        "openWallet": "Buka di dompet",
+        "method": { "btc": "Bitcoin", "ln": "Lightning" },
+        "details": "Donasi membantu menjaga platform tetap berjalan."
+        
       },
       "errors": {
         "fetchIncidents": "Gagal mengambil insiden. Coba lagi nanti.",
@@ -147,11 +152,11 @@
       "locationOk": "Lokasi tersimpan ✓",
       "locationDenied": "Izin lokasi ditolak. Aktifkan di Pengaturan → Privasi → Layanan Lokasi lalu coba lagi.",
       "locationError": "Tidak dapat menentukan lokasi. Coba lagi atau masukkan secara manual.",
-    
       "selectType": "Pilih jenis",
       "selectPhoto": "Pilih foto",
       "changePhoto": "Ganti foto",
       "submit": "Kirim Laporan",
+      "closeForm": "Tutup formulir laporan",
       "submitting": "Mengirim...",
       "errors": {
         "noType": "Silakan pilih jenis insiden.",

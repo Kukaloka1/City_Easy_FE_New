@@ -2,39 +2,61 @@ import React, { useMemo, useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { cities } from '@/cities/config'
-import { getRecentIncidents } from '@/features/incidents/api'
+import { getRecentIncidents, createIncident } from '@/features/incidents/api'
 import IncidentSummary from '@/features/incidents/IncidentSummary'
 import RecentIncidents from '@/features/incidents/RecentIncidents'
 import SurfWidget from '@/features/surf/SurfWidget'
 import TutorialSlider from '@/features/tutorial/TutorialSlider'
-import MapPlaceholder from '@/features/map/MapPlaceholder'
+import HeatMap from '@/features/map/HeatMap'
+import SecurityReport from '@/features/security/SecurityReport'
+import Modal from '@/components/ui/Modal' // <- usa el Modal con portal/z-index
+import SupportCityEasy from '@/features/support/SupportCityEasy'
 
-export default function CityPage(){
+
+export default function CityPage() {
   const { slug } = useParams()
   const { t } = useTranslation()
-  const city = useMemo(()=> cities[slug], [slug])
+  const city = useMemo(() => cities[slug], [slug])
+
+  // UI state
   const [showTutorial, setShowTutorial] = useState(false)
+  const [openReport, setOpenReport] = useState(false)
+
+  // data
   const [incidents, setIncidents] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
-  useEffect(()=>{
-    if(!city) return
+  // location para el form
+  const [lat, setLat] = useState(null)
+  const [lng, setLng] = useState(null)
+
+  // submit state
+  const [submitting, setSubmitting] = useState(false)
+
+
+  useEffect(() => {
+    if (!city) return
     let cancelled = false
-    async function load(){
-      try{
+
+    async function load() {
+      try {
         setLoading(true); setError(null)
         const items = await getRecentIncidents(city.slug, 20)
-        if(!cancelled) setIncidents(items)
-      }catch(e){ if(!cancelled) setError(e.message) }
-      finally{ if(!cancelled) setLoading(false) }
+        if (!cancelled) setIncidents(Array.isArray(items) ? items : [])
+      } catch (e) {
+        if (!cancelled) setError(e.message || 'Failed to load incidents')
+      } finally {
+        if (!cancelled) setLoading(false)
+      }
     }
+
     load()
-    const id = setInterval(load, 5*60*1000) // refresh cada 5 min
-    return ()=>{ cancelled = true; clearInterval(id) }
+    const id = setInterval(load, 5 * 60 * 1000) // refresh cada 5 min
+    return () => { cancelled = true; clearInterval(id) }
   }, [city])
 
-  if(!city){
+  if (!city) {
     return (
       <div className="mx-auto max-w-3xl px-4 py-10">
         <h1 className="text-2xl font-bold">City not found</h1>
@@ -44,32 +66,76 @@ export default function CityPage(){
     )
   }
 
+  const askLocationThenOpen = () => {
+    if (!navigator.geolocation) {
+      alert(t('bali.errors.noGeolocation'))
+      return
+    }
+    const opts = { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        setLat(pos.coords.latitude)
+        setLng(pos.coords.longitude)
+        setOpenReport(true)
+      },
+      () => alert(t('bali.errors.enableLocation')),
+      opts
+    )
+  }
+
+
+  const onSubmitReport = async (payload) => {
+    try {
+      setSubmitting(true)
+      await createIncident(payload)
+      // refetch tras enviar
+      const items = await getRecentIncidents(city.slug, 20)
+      setIncidents(Array.isArray(items) ? items : [])
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-8">
+      {/* Top bar */}
       <div className="mb-4 flex items-center justify-between">
-        <Link to="/dashboard" className="rounded-lg border px-3 py-1 text-sm hover:bg-slate-50">← {t('bali.changeCity')}</Link>
+        <Link to="/dashboard" className="rounded-lg border px-3 py-1 text-sm hover:bg-slate-50">
+          ← {t('bali.changeCity')}
+        </Link>
         <div className="flex items-center gap-2">
-          <button onClick={()=> setShowTutorial(true)} className="rounded-lg border px-3 py-1 text-sm font-semibold hover:bg-slate-50">
+          <button
+            onClick={() => setShowTutorial(true)}
+            className="rounded-lg border px-3 py-1 text-sm font-semibold hover:bg-slate-50"
+          >
             {t('bali.buttons.tutorial')}
           </button>
           {city.features.surf && (
             <a href="#surf" className="rounded-lg border px-3 py-1 text-sm font-semibold hover:bg-slate-50">AI Surf</a>
           )}
-          <a href="#report" className="rounded-lg border px-3 py-1 text-sm font-semibold hover:bg-slate-50">
+          <button
+            onClick={askLocationThenOpen}
+            className="rounded-lg border bg-slate-900 px-3 py-1 text-sm font-semibold text-white hover:bg-slate-800"
+          >
             {t('bali.buttons.report')}
-          </a>
+          </button>
         </div>
       </div>
 
+      {/* Header */}
       <header className="mb-6">
         <h1 className="text-3xl font-extrabold" dangerouslySetInnerHTML={{ __html: t('bali.header.title') }} />
         <p className="text-slate-600" dangerouslySetInnerHTML={{ __html: t('bali.header.subtitle') }} />
       </header>
 
-      {/* Mapa */}
+      {/* Mapa (único) */}
       <section className="space-y-3">
         <h2 className="text-xl font-bold">{t('bali.sections.mapTitle')}</h2>
-        <MapPlaceholder city={city} />
+        <HeatMap
+          incidents={incidents}
+          center={city.center || undefined}
+          interactive={!(openReport || showTutorial)}   // <- bloquea interacción con modales
+        />
       </section>
 
       {/* Summary + Recent */}
@@ -87,6 +153,11 @@ export default function CityPage(){
         </div>
       </section>
 
+      {/* AI Safety Summary */}
+      <section className="mt-8">
+        <SecurityReport />
+      </section>
+
       {/* Surf opcional */}
       {city.features.surf && (
         <section id="surf" className="mt-8">
@@ -96,27 +167,34 @@ export default function CityPage(){
 
       {/* Support */}
       <section className="mt-8">
-        <div className="rounded-xl border bg-white p-4">
-          <h3 className="mb-3 text-lg font-bold">Support CityEasy</h3>
-          <p className="mb-4 text-slate-600">{t('bali.donation.note')}</p>
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="rounded-lg border p-3">
-              <div className="font-semibold">Bitcoin</div>
-              <code className="mt-1 block truncate rounded bg-slate-50 px-2 py-1 text-sm">
-                {import.meta.env.VITE_BTC_ADDRESS || 'bc1qm4pn5yv94qgmc0js9pmurcp32dldfpt9ap04lj'}
-              </code>
-            </div>
-            <div className="rounded-lg border p-3">
-              <div className="font-semibold">Lightning</div>
-              <code className="mt-1 block truncate rounded bg-slate-50 px-2 py-1 text-sm">
-                {import.meta.env.VITE_LIGHTNING_ADDRESS || 'coylaborer25@walletofsatoshi.com'}
-              </code>
-            </div>
-          </div>
-        </div>
+        <SupportCityEasy />
       </section>
 
-      {showTutorial && <TutorialSlider onClose={()=> setShowTutorial(false)} />}
+      {/* Tutorial modal simple */}
+      {showTutorial && (
+        <Modal isOpen={showTutorial} onClose={() => setShowTutorial(false)} title={t('bali.buttons.tutorial')}>
+          <TutorialSlider onClose={() => setShowTutorial(false)} />
+        </Modal>
+      )}
+
+      {/* Report modal */}
+      <Modal isOpen={openReport} onClose={() => setOpenReport(false)} title={t('report.title')}>
+        <ReportFormLazy
+          onSubmit={onSubmitReport}
+          isSubmitting={submitting}
+          lat={lat}
+          lng={lng}
+          onClose={() => setOpenReport(false)}
+        />
+      </Modal>
     </div>
   )
+}
+
+// code-splitting del formulario
+function ReportFormLazy(props) {
+  const [C, setC] = useState(null)
+  useEffect(() => { import('@/features/report/ReportForm').then(m => setC(() => m.default)) }, [])
+  if (!C) return <div className="p-3 text-slate-500">Loading form…</div>
+  return <C {...props} />
 }

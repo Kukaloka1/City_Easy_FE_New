@@ -16,7 +16,7 @@ export default function IncidentSummary({ incidents=[] }){
     <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
       {stats.map(s=>(
         <div key={s.key} className="rounded-xl border bg-white px-4 py-3 shadow-sm">
-          <div className="text-sm font-semibold text-slate-500">{s.label}</div>
+          <div className="text-xs font-semibold text-slate-500">{s.label}</div>
           <div className="text-2xl font-black tracking-tight">{s.value}</div>
         </div>
       ))}

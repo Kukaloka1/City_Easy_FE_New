@@ -126,9 +126,13 @@
         "logout": "Logging out...",
         "generic": "Loading..."
       },
-      "donation": {
-        "note": "Donations help keep our platform running.",
-        "copied": "Address copied!"
+      "support": {
+        "title": "Support CityEasy",
+        "cta": "Show options",
+        "hide": "Hide",
+        "openWallet": "Open in wallet",
+        "method": { "btc": "Bitcoin", "ln": "Lightning" },
+        "details": "Donations help keep our platform running."
       },
       "errors": {
         "fetchIncidents": "Failed to fetch recent incidents. Please try again later.",
@@ -152,6 +156,7 @@
       "selectPhoto": "Select photo",
       "changePhoto": "Change photo",
       "submit": "Submit Report",
+      "closeForm": "Close report form",
       "submitting": "Submitting...",
       "errors": {
         "noType": "Please select an incident type.",
@@ -209,6 +214,7 @@
       "errorLoad": "Error loading the safety report. Please try again later.",
       "errorChat": "Sorry, there was a problem. Try again later."
     },
+    
     "surf": {
       "title": "AI Surf Report",
       "refresh": "updated every 2 h",

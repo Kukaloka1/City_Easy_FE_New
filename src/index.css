@@ -8,5 +8,21 @@
   .ce-btn  { @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-semibold hover:opacity-90; }
 }
 
-/* Leaflet mínimos (si usas MapView luego) */
-.leaflet-container { width: 100%; height: 70vh; border-radius: 1rem; }
+/* ---- Tailwind × Leaflet fix: no escalar imágenes del mapa ---- */
+.leaflet-container .leaflet-pane img,
+.leaflet-container .leaflet-tile,
+.leaflet-container .leaflet-marker-icon,
+.leaflet-container img.leaflet-image-layer {
+  max-width: none !important;
+  max-height: none !important;
+}
+
+/* Estética y clipping del contenedor del mapa (sin forzar altura global) */
+.leaflet-container {
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+/* src/index.css */
+.leaflet-container { z-index: 0; } /* el modal ya va a 10000 */
+
