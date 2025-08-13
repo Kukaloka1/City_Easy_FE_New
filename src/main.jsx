@@ -5,8 +5,16 @@ import { RouterProvider } from 'react-router-dom'
 import router from './router'
 import './index.css'
 
-createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
-)
+const AppTree = import.meta.env.PROD
+  ? (
+      <React.StrictMode>
+        <RouterProvider router={router} />
+      </React.StrictMode>
+    )
+  : (
+      // En desarrollo SIN StrictMode para evitar dobles useEffect/fetch
+      <RouterProvider router={router} />
+    )
+
+createRoot(document.getElementById('root')).render(AppTree)
+
