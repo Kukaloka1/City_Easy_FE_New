@@ -8,8 +8,8 @@ export const cities = {
     brandColor: '#21827e',
     bg: '#f7fdfa',
     sloganKey: 'dashboard.cities.bali',
-    center: [-8.4095, 115.1889],
-    zoom: 10,
+    center: [-8.65, 115.13],
+    zoom: 12,
     features: { surf: true, heatmap: true, aiBrief: true },
     apis: {
       incidents: import.meta.env.VITE_INCIDENTS_API_URL || '/api/incidents',

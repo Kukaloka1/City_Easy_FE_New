@@ -16,11 +16,8 @@ export default function SurfWidget() {
 
   const fetchSpot = async (s) => {
     const enc = encodeURIComponent(s)
-    // 1) forma legacy exacta de tu widget antiguo
     const u1 = `${BASE}/${enc}?lang=${encodeURIComponent(LANG)}`
-    // 2) variante “latest”
     const u2 = `${BASE}/latest?spot=${enc}&lang=${encodeURIComponent(LANG)}`
-    // 3) fallback sin /api
     const baseNoApi = BASE.replace(/\/api\/surf$/, '')
     const u3 = `${baseNoApi}/surf/${enc}?lang=${encodeURIComponent(LANG)}`
 
@@ -45,12 +42,10 @@ export default function SurfWidget() {
   const refresh = async () => {
     setLoading(true); setError(null)
     try {
-      // cache global por spot map
       const cached = JSON.parse(localStorage.getItem('surfDataMap') || '{}')
       const ts     = parseInt(localStorage.getItem('surfUpdatedAt') || '0', 10)
       const now    = Date.now()
 
-      // si cache valido y tiene todos los spots
       const hasAll = SPOTS.every(s => cached[s])
       if (ts && now - ts < TTL && hasAll) {
         setMap(cached); setUpdatedAt(new Date(ts)); setLoading(false); return
@@ -79,8 +74,6 @@ export default function SurfWidget() {
   }, [])
 
   const current = map[spot]
-
-  // normalización por si campos cambian nombre
   const m = current?.data || {}
   const wave   = firstNum(m.wave_height, m.swh, m.waveHeight, m.wave)
   const period = firstNum(m.wave_period, m.tp, m.period)
@@ -90,15 +83,19 @@ export default function SurfWidget() {
 
   return (
     <div className="rounded-2xl border bg-white/90 p-5 shadow-sm">
+      {/* Header */}
       <div className="mb-3 flex items-center justify-between gap-3">
-        <h3 className="text-lg font-extrabold">
-          AI Surf Report <span className="text-slate-400 text-sm">(updated every 2 h)</span>
+        <h3 className="text-lg font-extrabold text-slate-800">
+          AI Surf Report
+          <span className="ml-2 text-slate-400 text-xs font-medium">
+            (updates every 2h)
+          </span>
         </h3>
         {SPOTS.length > 1 ? (
           <select
-            className="rounded-lg border px-3 py-2 text-sm"
+            className="rounded-lg border px-3 py-2 text-sm shadow-sm focus:border-slate-400 focus:outline-none"
             value={spot}
-            onChange={(e)=>setSpot(e.target.value)}
+            onChange={(e) => setSpot(e.target.value)}
           >
             {SPOTS.map(s => <option key={s} value={s}>{s}</option>)}
           </select>
@@ -107,41 +104,56 @@ export default function SurfWidget() {
         )}
       </div>
 
+      {/* Last update */}
       {updatedAt && (
-        <p className="mb-3 text-xs text-slate-500">
-          Last fetch: {updatedAt.toLocaleTimeString()}
+        <p className="mb-3 text-xs text-slate-500 italic">
+          Last updated at <span className="font-medium">{updatedAt.toLocaleTimeString()}</span>
         </p>
       )}
 
-      {loading && <p className="text-sm text-slate-600">Loading…</p>}
+      {/* Loading */}
+      {loading && (
+        <p className="text-sm text-slate-600 animate-pulse">
+          Fetching the latest ocean conditions…
+        </p>
+      )}
+
+      {/* Error */}
       {error && (
-        <div className="rounded-md border border-rose-200 bg-rose-50 px-3 py-2 text-sm font-semibold text-rose-700">
-          Error: {error}
+        <div className="rounded-md border border-rose-200 bg-rose-50 px-3 py-2 text-sm font-semibold text-rose-700 shadow-sm">
+          ⚠️ Unable to load surf data: {error}
         </div>
       )}
 
+      {/* Data */}
       {!loading && !error && current && (
         <>
           <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
             <Metric label="Wave Height" value={fmt(wave, ' m')} />
             <Metric label="Period"      value={fmt(period, ' s')} />
             <Metric label="Swell"       value={fmt(swell, ' m')} />
-            <Metric label="Dir"         value={fmt(dir, '°')} />
+            <Metric label="Direction"   value={fmt(dir, '°')} />
             <Metric label="Wind"        value={fmt(wind)} />
           </div>
 
           {current.advice && (
-            <div className="prose prose-sm mt-4 max-w-none rounded-xl border bg-white/70 p-3">
+            <div className="mt-4 rounded-xl border bg-gradient-to-br from-slate-50 to-white p-4 shadow-sm">
+              <h4 className="mb-2 text-sm font-bold text-slate-700">AI Recommendation</h4>
               {Array.isArray(current.advice)
-                ? current.advice.map((line, i) => <p key={i} className="mb-1">{line}</p>)
-                : <p>{String(current.advice)}</p>}
+                ? current.advice.map((line, i) => (
+                    <p key={i} className="mb-1 text-sm text-slate-600">{line}</p>
+                  ))
+                : <p className="text-sm text-slate-600">{String(current.advice)}</p>}
             </div>
           )}
         </>
       )}
 
+      {/* No data */}
       {!loading && !error && !current && (
-        <p className="text-sm text-slate-500">No surf data for this spot.</p>
+        <p className="text-sm text-slate-500 italic">
+          No surf forecast available for this spot at the moment.
+        </p>
       )}
 
       <p className="mt-4 text-xs text-slate-400">Powered by CityEasy</p>
@@ -163,6 +175,7 @@ function fmt(v, unit='') {
   if (typeof v === 'number') return `${Math.round(v * 10) / 10}${unit}`
   return String(v)
 }
+
 function firstNum(...xs){
   for (const x of xs) if (typeof x === 'number') return x
   return xs.find(x => x != null) ?? null
