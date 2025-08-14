@@ -21,27 +21,22 @@ export default function CtaBanner({ onCTA, isLoading }) {
             </h2>
 
             <button
-              onClick={onCTA}
-              disabled={isLoading}
-              className="group relative mt-6 inline-flex items-center justify-center gap-3 rounded-xl border-2 border-white/90 bg-white px-7 py-3
-                         text-[1.05rem] font-black uppercase tracking-wide text-blue-700 transition
-                         hover:text-white disabled:opacity-60 disabled:cursor-not-allowed"
-            >
-              {/* Shine */}
-              <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit]">
-                <span className="absolute -left-full top-0 h-full w-1/3 rotate-12 bg-white/40 blur-sm transition-all duration-500 group-hover:left-full" />
-              </span>
-
-              {/* Spinner cuando isLoading */}
-              {isLoading && (
-                <svg className="h-5 w-5 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden>
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
-                  <path className="opacity-90" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"/>
+            onClick={onCTA}
+            disabled={isLoading}
+            className="mt-6 inline-flex select-none items-center justify-center rounded-xl border border-slate-300 bg-slate-900 px-8 py-4 text-[1.05rem] font-bold text-white shadow-[0_14px_40px_rgba(2,6,23,0.18)] active:scale-[0.98] disabled:opacity-60"
+          >
+            {isLoading ? (
+              <span className="flex items-center gap-2">
+                <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" className="opacity-25" stroke="currentColor" strokeWidth="4" fill="none" />
+                  <path d="M4 12a8 8 0 018-8" className="opacity-75" stroke="currentColor" strokeWidth="4" fill="none" />
                 </svg>
-              )}
-
-              <span>{isLoading ? t('home.loading') : t('home.ctaBlockBtn')}</span>
-            </button>
+                {t('home.loading')}
+              </span>
+            ) : (
+              t('home.ctaPrimary')
+            )}
+          </button>
           </div>
 
           {/* Blobs decorativos */}

@@ -1,3 +1,4 @@
+// src/pages/CityPage.jsx
 import React, { useMemo, useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -14,8 +15,11 @@ import SupportCityEasy from '@/features/support/SupportCityEasy'
 
 export default function CityPage() {
   const { slug } = useParams()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const city = useMemo(() => cities[slug], [slug])
+
+  // Config ventana (misma para mapa, lista y summary)
+  const WINDOW_HOURS = 24
 
   // UI state
   const [showTutorial, setShowTutorial] = useState(false)
@@ -33,6 +37,11 @@ export default function CityPage() {
   // submit state
   const [submitting, setSubmitting] = useState(false)
 
+  const filterByWindow = (items) => {
+    const since = Date.now() - WINDOW_HOURS * 60 * 60 * 1000
+    return (Array.isArray(items) ? items : []).filter(i => +new Date(i.timestamp) >= since)
+  }
+
   useEffect(() => {
     if (!city) return
     let cancelled = false
@@ -40,8 +49,9 @@ export default function CityPage() {
     async function load() {
       try {
         setLoading(true); setError(null)
-        const items = await getRecentIncidents(city.slug, 20)
-        if (!cancelled) setIncidents(Array.isArray(items) ? items : [])
+        const items = await getRecentIncidents(city.slug, 20) // BE recientes; aquí reforzamos 24h
+        const filtered = filterByWindow(items)
+        if (!cancelled) setIncidents(filtered)
       } catch (e) {
         if (!cancelled) setError(e.message || 'Failed to load incidents')
       } finally {
@@ -86,11 +96,22 @@ export default function CityPage() {
       setSubmitting(true)
       await createIncident(payload)
       const items = await getRecentIncidents(city.slug, 20)
-      setIncidents(Array.isArray(items) ? items : [])
+      setIncidents(filterByWindow(items))
     } finally {
       setSubmitting(false)
     }
   }
+
+  // Fecha “hoy” localizada según i18n.language (en, id, es, etc.)
+  const dayLabel = useMemo(() => {
+    const locale = i18n.language || undefined
+    return new Date().toLocaleDateString(locale, {
+      weekday: 'short',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    })
+  }, [i18n.language])
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 space-y-8">
@@ -131,20 +152,21 @@ export default function CityPage() {
           incidents={incidents}
           center={city.center || undefined}
           interactive={!(openReport || showTutorial)}
+          windowHours={WINDOW_HOURS}
         />
       </section>
 
-      {/* Incident Summary – ancho completo (cinta horizontal) */}
+      {/* Incident Summary – ancho completo */}
       <section className="rounded-xl border bg-white p-4">
         <h3 className="mb-3 text-lg font-bold">{t('bali.sections.summaryTitle')}</h3>
         {loading ? (
           <p className="text-slate-500">Loading…</p>
         ) : (
-          <IncidentSummary incidents={incidents} />
+          <IncidentSummary incidents={incidents} dayLabel={dayLabel} />
         )}
       </section>
 
-      {/* Recent Incidents – ancho completo (masonry) */}
+      {/* Recent Incidents – ancho completo */}
       <section className="rounded-xl border bg-white p-4">
         <div className="mb-3 flex items-center justify-between">
           <h3 className="text-lg font-bold">{t('bali.sections.recentTitle')}</h3>
@@ -154,7 +176,6 @@ export default function CityPage() {
           <p className="text-slate-500">Loading…</p>
         ) : (
           <RecentIncidents incidents={incidents} layout="uniform" />
-
         )}
       </section>
 

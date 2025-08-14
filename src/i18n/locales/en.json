@@ -1,233 +1,269 @@
 {
-    "home": {
-      "loading": "Loading…",
-      "hero": {
-        "title": { "part1": "CITY", "part2": "EASY" },
-        "yellowSubtitle": "SMART CITIZENS ALERTS",
-        "subtitle": "Anonymous · Instant · Actionable",
-        "tagline1": "The first <strong>real-time, privacy-first</strong> urban alert network built for <b>Southeast&nbsp;Asia.</b>",
-        "tagline2": "Traffic, crime, disasters — and in&nbsp;Bali, exclusive <strong>AI Surf Reports</strong>. One feed. Zero noise. Powered by next-gen AI."
+  "home": {
+    "loading": "Loading…",
+    "hero": {
+      "title": { "part1": "CITY", "part2": "EASY" },
+      "yellowSubtitle": "SMART CITIZENS ALERTS",
+      "subtitle": "Anonymous · Instant · Actionable",
+      "tagline1": "The first <strong>real-time, privacy-first</strong> urban alert network built for <b>Southeast&nbsp;Asia.</b>",
+      "tagline2": "Traffic, crime, disasters — and in&nbsp;Bali, exclusive <strong>AI Surf Reports</strong>. One feed. Zero noise. Powered by next-gen AI.",
+      "live": {
+        "title": "Live snapshot",
+        "badge": "Real-time"
       },
-      "ctaPrimary": "Get Started — It’s Free",
-      "gapTitle": "The Gap We Close",
-      "gapLi1": "600 million+ SEA residents face daily gridlock, hidden crime, sudden hazards.",
-      "gapLi2": "Alerts arrive late or via chaotic socials — trust and reaction time evaporate.",
-      "gapLi3": "No single, reliable pulse protects the city in real time. Until now.",
-      "solutionTitle": "Our Answer",
-      "solutionLi1": "<strong>Citizen-powered feed</strong> — snap, send, done. Zero sign-up.",
-      "solutionLi2": "<strong>AI pulse every 15 min</strong> — trends, hotspots, risk heat-maps.",
-      "solutionLi3": "Multilingual. Ultra-fast. Designed for locals, tourists, first responders.",
-      "missionTitle": "Our Mission",
-      "missionP1": "Turn every citizen into a secure urban sensor. Democratise life-saving data.",
-      "missionP2": "CityEasy isn’t just an app — it’s a civic movement, born in Southeast Asia, fuelled by technology, driven by people.",
-      "features": {
-        "card1": { "title": "Anonymous Live Feed", "desc": "Zero accounts. Zero friction. Pure, crowdsourced intel the moment it happens." },
-        "card2": { "title": "Photo-Verified Mapping", "desc": "Every alert geolocated & backed by a photo — no pic, no publish. Credibility at a glance." },
-        "card3": { "title": "15-Minute AI Sentinel", "desc": "Our AI agent digests every report <b>every 15 min</b>, pushes an executive brief & heat-map — before rumours can spread." },
-        "card4": { "title": "Conversational Safety Copilot", "desc": "Ask anything — laws, safe routes, even Bali surf — AI answers in seconds, in your language." },
-        "card5": { "title": "Real-Time Insight Dashboard", "desc": "Live heat-maps, trend curves and hotspots so you can act, not react." },
-        "card6": { "title": "SEA-Born, Global-Ready", "desc": "English · Bahasa · Spanish today — Khmer, Thai & Tagalog tomorrow." }
+      "metric1": "Cities",
+      "metric2": "Reports/day",
+      "metric3": "Response"
+    },
+    "ctaPrimary": "Get Started — It’s Free",
+    "gapTitle": "Problem",
+    "gapSubtitle": "The reality on the ground",
+    "solutionTitle": "Solution",
+    "solutionSubtitle": "A clear and scalable answer",
+    "gapLi1": "600 million+ SEA residents face daily gridlock, hidden crime, sudden hazards.",
+    "gapLi2": "Alerts arrive late or via chaotic socials — trust and reaction time evaporate.",
+    "gapLi3": "No single, reliable pulse protects the city in real time. Until now.",
+    "solutionLi1": "<strong>Citizen-powered feed</strong> — snap, send, done. Zero sign-up.",
+    "solutionLi2": "<strong>AI pulse every 15 min</strong> — trends, hotspots, risk heat-maps.",
+    "solutionLi3": "Multilingual. Ultra-fast. Designed for locals, tourists, first responders.",
+    "missionTitle": "Our Mission",
+    "missionP1": "Turn every citizen into a secure urban sensor. Democratise life-saving data.",
+    "missionP2": "CityEasy isn’t just an app — it’s a civic movement, born in Southeast Asia, fuelled by technology, driven by people.",
+    "features": {
+      "card1": {
+        "title": "Anonymous Live Feed",
+        "desc": "Zero accounts. Zero friction. Pure, crowdsourced intel the moment it happens."
       },
-      "citiesTitle": "Live & Next Cities",
-      "citiesDesc1": "Roll-out is accelerating — be part of the first wave.",
-      
-      "cities": {
-        "bali": "LIVE NOW citizen safety alerts & AI reports, now with exclusive AI surf forecasts (Bali only).",
-        "jakarta": "Expanding in 2025 with traffic monitoring.",
-        "bangkok": "Planned rollout with disaster tracking.",
-        "singapore": "Coming soon with urban safety features.",
-        "kl": "Set to launch with AI-driven insights.",
-        "danang": "Upcoming with multilingual support."
+      "card2": {
+        "title": "Photo-Verified Mapping",
+        "desc": "Every alert geolocated & backed by a photo — no pic, no publish. Credibility at a glance."
       },
-      "howTitle": "How CityEasy Works",
-      "how": {
-        "step1": { "title": "Tap-In Anonymously", "desc": "One tap, zero personal data. Choose your city and unlock the live feed in <5 sec." },
-        "step2": { "title": "Shoot & Share", "desc": "Spot an incident? Select type, snap a pic, auto-geo-tag, hit send. <em>10 seconds, tops.</em>" },
-        "step3": { "title": "AI + Human Trust Layer", "desc": "Dual-validation engine filters noise and confirms credibility before publishing <strong>live.</strong>" },
-        "step4": { "title": "Own the Pulse", "desc": "Our 15-min <strong>AI Sentinel</strong> converts raw alerts into trends, heat-maps & personalised safety tips — so you act, not react." }
+      "card3": {
+        "title": "15-Minute AI Sentinel",
+        "desc": "Our AI agent digests every report <b>every 15 min</b>, pushes an executive brief & heat-map — before rumours can spread."
       },
-      "ctaBlockTitle": "Ready to own your city’s pulse?",
-      "ctaBlockBtn": "Start Free in 30 sec",
-      "faq": {
-        "title": "Questions? We got you.",
-        "q1": "Is my identity really anonymous?",
-        "a1": "Yes. We don’t collect names, phone numbers, or device IDs. Your report is 100% anonymous and encrypted.",
-        "q2": "Can I report incidents if I’m just visiting?",
-        "a2": "You can view alerts in all cities, but to submit a report, you must be physically in that country.",
-        "q3": "What types of reports can I submit?",
-        "a3": "Traffic, crime, accidents, fires, protests, roadblocks, weather, and more. Choose the type, write, snap a photo, and send.",
-        "q4": "What does the AI do with my report?",
-        "a4": "Every 15 minutes, our AI analyzes all reports to detect trends, verify credibility, and update the public dashboard.",
-        "q5": "Can I collaborate or donate to CityEasy?",
-        "a5": "Absolutely. CityEasy is an independent civic tech project — we welcome community support to keep the platform running and expanding.<br><br>You can contribute directly via <strong>Bitcoin</strong> or the <strong>Lightning Network</strong> to support infrastructure, server costs, and future deployments in more cities.<br><br>Donations are <strong>anonymous, borderless</strong>, and help us maintain full independence from political and corporate agendas."
+      "card4": {
+        "title": "Conversational Safety Copilot",
+        "desc": "Ask anything — laws, safe routes, even Bali surf — AI answers in seconds, in your language."
       },
-      "footer": {
-        "brand": "© 2025 <span class=\"cityeasy-home-footer-app-name\">CityEasy</span> – Smart Urban Safety for Southeast Asia",
-        "about": "About",
-        "contact": "Contact",
-        "privacy": "Privacy Policy",
-        "terms": "Terms & Conditions",
-        "credit": "another coolness from <span class=\"cityeasy-home-footer-company\">Bittech Network</span>"
+      "card5": {
+        "title": "Real-Time Insight Dashboard",
+        "desc": "Live heat-maps, trend curves and hotspots so you can act, not react."
+      },
+      "card6": {
+        "title": "SEA-Born, Global-Ready",
+        "desc": "English · Bahasa · Spanish today — Khmer, Thai & Tagalog tomorrow."
       }
     },
-    "dashboard": {
-      "title": "Welcome to <span class=\"cityeasy-highlight\">CityEasy</span>",
-      "subtitle": {
-        "line1": "Citizen-powered safety, real-time maps & instant reporting.",
-        "line2": "Select your city to get started:"
+    "citiesTitle": "Live & Next Cities",
+    "citiesDesc1": "Roll-out is accelerating — be part of the first wave.",
+
+    "cities": {
+      "bali": "LIVE NOW citizen safety alerts & AI reports, now with exclusive AI surf forecasts (Bali only).",
+      "jakarta": "Expanding in 2025 with traffic monitoring.",
+      "bangkok": "Planned rollout with disaster tracking.",
+      "singapore": "Coming soon with urban safety features.",
+      "kl": "Set to launch with AI-driven insights.",
+      "danang": "Upcoming with multilingual support."
+    },
+    "howTitle": "How CityEasy Works",
+    "how": {
+      "step1": {
+        "title": "Tap-In Anonymously",
+        "desc": "One tap, zero personal data. Choose your city and unlock the live feed in <5 sec."
       },
-      "contact": "Want to see your city here? <a href=\"mailto:info@cityeasy.org\" class=\"dashboard-contact-link\">Contact us</a>",
-      "cities": {
-        "bali": "Guardian for Bali",
-        "jakarta": "Big City, Big Safety",
-        "bangkok": "Stay safe, Bangkok!",
-        "singapore": "Singapore, always alert",
-        "danang": "Da Nang, safer together",
-        "kl": "KL Watch: Community Guard"
+      "step2": {
+        "title": "Shoot & Share",
+        "desc": "Spot an incident? Select type, snap a pic, auto-geo-tag, hit send. <em>10 seconds, tops.</em>"
+      },
+      "step3": {
+        "title": "AI + Human Trust Layer",
+        "desc": "Dual-validation engine filters noise and confirms credibility before publishing <strong>live.</strong>"
+      },
+      "step4": {
+        "title": "Own the Pulse",
+        "desc": "Our 15-min <strong>AI Sentinel</strong> converts raw alerts into trends, heat-maps & personalised safety tips — so you act, not react."
       }
     },
-    "incidentTypes": {
-      "total": "Total Incidents",
-      "accident": "Traffic Accidents",
-      "traffic": "Traffic Jams",
-      "crime": "Theft/Robbery",
-      "disaster": "Natural Disasters",
-      "weather": "Extreme Weather"
+    "ctaBlockTitle": "Ready to own your city’s pulse?",
+    "ctaBlockBtn": "Start Free in 30 sec",
+    "faq": {
+      "title": "Questions? We got you.",
+      "q1": "Is my identity really anonymous?",
+      "a1": "Yes. We don’t collect names, phone numbers, or device IDs. Your report is 100% anonymous and encrypted.",
+      "q2": "Can I report incidents if I’m just visiting?",
+      "a2": "You can view alerts in all cities, but to submit a report, you must be physically in that country.",
+      "q3": "What types of reports can I submit?",
+      "a3": "Traffic, crime, accidents, fires, protests, roadblocks, weather, and more. Choose the type, write, snap a photo, and send.",
+      "q4": "What does the AI do with my report?",
+      "a4": "Every 15 minutes, our AI analyzes all reports to detect trends, verify credibility, and update the public dashboard.",
+      "q5": "Can I collaborate or donate to CityEasy?",
+      "a5": "Absolutely. CityEasy is an independent civic tech project — we welcome community support to keep the platform running and expanding.<br><br>You can contribute directly via <strong>Bitcoin</strong> or the <strong>Lightning Network</strong> to support infrastructure, server costs, and future deployments in more cities.<br><br>Donations are <strong>anonymous, borderless</strong>, and help us maintain full independence from political and corporate agendas."
     },
-    "map": {
-      "openFilters": "Incident Filters",
-      "closeFilters": "Close Filters"
-    },
-    "bali": {
-      "changeCity": "← Change City",
-      "header": {
-        "title": "CityEasy <span class=\"bali-header-bali\">| Bali</span>",
-        "subtitle": "Smart Real-time Urban Safety Panel for <strong>Bali</strong>"
-      },
-      "buttons": {
-        "tutorial": "Quick Tutorial",
-        "logout": "Logout",
-        "report": "Report New Incident",
-        "surf": "AI Surf Report",
-        "support": "Support CityEasy",
-        "copy": "Copy"
-      },
-      "sections": {
-        "mapTitle": "Incident Map (Bali)",
-        "summaryTitle": "Incident Summary",
-        "recentTitle": "Recent Incidents"
-      },
-      "currentTime": "Current time in Bali: {{time}}",
-      "timeAgo": "ago",
-      "reportedOn": "Reported on:",
-      "resolving": "Resolving location...",
-      "noCoords": "No coordinates",
-      "loading": {
-        "logout": "Logging out...",
-        "generic": "Loading..."
-      },
-      "support": {
-        "title": "Support CityEasy",
-        "cta": "Show options",
-        "hide": "Hide",
-        "openWallet": "Open in wallet",
-        "method": { "btc": "Bitcoin", "ln": "Lightning" },
-        "details": "Donations help keep our platform running."
-      },
-      "errors": {
-        "fetchIncidents": "Failed to fetch recent incidents. Please try again later.",
-        "enableLocation": "Failed to get location. Please enable location and try again.",
-        "noGeolocation": "Geolocation is not supported by this browser.",
-        "submit": "Failed to submit the report. Please try again."
-      }
-    },
-    "report": {
-      "title": "Report New Incident",
-      "note": "<strong>Note:</strong> You must <u>enable location access</u> to submit a report.",
-      "typeLabel": "Incident Type:",
-      "descLabel": "Description:",
-      "photoLabel": "Incident photo:",
-      "locationLabel": "Location",
-      "getLocation": "Get current location",
-      "locationOk": "Location set ✓",
-      "locationDenied": "Location permission denied. Enable it in Settings → Privacy → Location Services and try again.",
-      "locationError": "Unable to determine location. Try again or enter it manually.",
-      "selectType": "Select type",
-      "selectPhoto": "Select photo",
-      "changePhoto": "Change photo",
-      "submit": "Submit Report",
-      "closeForm": "Close report form",
-      "submitting": "Submitting...",
-      "errors": {
-        "noType": "Please select an incident type.",
-        "badDescription": "Description is required and max {{max}} characters.",
-        "noLocation": "Unable to get your location. Please try again.",
-        "noPhoto": "Please attach an incident photo.",
-        "submit": "Failed to submit report. Please try again."
-      }
-    },
-    "tutorial": {
-      "close": "Close Tutorial",
-      "slides": {
-        "0": {
-          "title": "Real-Time Incident Map",
-          "content": "See live incidents across Southeast Asia. Colored pins mark police (blue), accidents/traffic (orange), crime (red), disasters (green) and weather alerts (light blue)."
-        },
-        "1": {
-          "title": "Anonymous Incident Reports",
-          "content": "Report incidents in seconds: choose a type, add a short note, share your location and upload a photo. Your anonymous report updates the map for everyone."
-        },
-        "2": {
-          "title": "AI-Powered Safety Insights",
-          "content": "Every 15 min our AI reveals trends, risk zones and travel tips so you can move smarter."
-        },
-        "3": {
-          "title": "Instant AI Assistant",
-          "content": "Ask anything—laws, safe routes, current risks—and get fast answers in your language."
-        },
-        "4": {
-          "title": "Privacy & Data Protection",
-          "content": "Reports are 100 % anonymous and we never store personal data. Share location only when you choose."
-        },
-        "5": {
-          "title": "Traffic & Accident Alerts",
-          "content": "Stay ahead of congestion and accidents. Perfect for locals, tourists and drivers."
-        },
-        "6": {
-          "title": "Weather & Disaster Alerts",
-          "content": "Community-driven alerts for storms, floods or earthquakes keep you ready for sudden hazards."
-        },
-        "7": {
-          "title": "Support CityEasy",
-          "content": "CityEasy is community-driven. Bitcoin or Lightning donations keep servers running and expand coverage."
-        }
-      }
-    },
-    "security": {
-      "title": "CityEasy AI Safety Summary",
-      "latest": "Latest Safety Analysis (updated every 15 min)",
-      "lastUpdate": "Last update: {{date}}",
-      "noReport": "No safety report available.",
-      "askAI": "Ask the AI CityEasy Assistant",
-      "placeholder": "Feel free to ask about the current situation…",
-      "empty": "Please type something before sending.",
-      "errorLoad": "Error loading the safety report. Please try again later.",
-      "errorChat": "Sorry, there was a problem. Try again later."
-    },
-    
-    "surf": {
-      "title": "AI Surf Report",
-      "refresh": "updated every 2 h",
-      "hint": "Need fresher details? Ask the chatbot: “How are the waves in Uluwatu?”",
-      "lastFetch": "Last fetch: {{time}} WITA",
-      "waveHeight": "Wave Height",
-      "period": "Period",
-      "swell": "Swell",
-      "dir": "Dir",
-      "wind": "Wind",
-      "powered": "Powered by"
+    "footer": {
+      "brand": "© 2025 <span class=\"cityeasy-home-footer-app-name\">CityEasy</span> – Smart Urban Safety for Southeast Asia",
+      "about": "About",
+      "contact": "Contact",
+      "privacy": "Privacy Policy",
+      "terms": "Terms & Conditions",
+      "credit": "another coolness from <span class=\"cityeasy-home-footer-company\">Bittech Network</span>"
     }
+  },
+  "dashboard": {
+    "title": "Welcome to <span class=\"cityeasy-highlight\">CityEasy</span>",
+    "subtitle": {
+      "line1": "Citizen-powered safety, real-time maps & instant reporting.",
+      "line2": "Select your city to get started:"
+    },
+    "contact": "Want to see your city here? <a href=\"mailto:info@cityeasy.org\" class=\"dashboard-contact-link\">Contact us</a>",
+    "cities": {
+      "bali": "Guardian for Bali",
+      "jakarta": "Big City, Big Safety",
+      "bangkok": "Stay safe, Bangkok!",
+      "singapore": "Singapore, always alert",
+      "danang": "Da Nang, safer together",
+      "kl": "KL Watch: Community Guard"
+    }
+  },
+  "incidentTypes": {
+    "total": "Total Incidents",
+    "accident": "Traffic Accidents",
+    "traffic": "Traffic Jams",
+    "crime": "Theft/Robbery",
+    "disaster": "Natural Disasters",
+    "weather": "Extreme Weather"
+  },
+  "map": {
+    "openFilters": "Incident Filters",
+    "closeFilters": "Close Filters"
+  },
+  "bali": {
+    "changeCity": "← Change City",
+    "header": {
+      "title": "CityEasy <span class=\"bali-header-bali\">| Bali</span>",
+      "subtitle": "Smart Real-time Urban Safety Panel for <strong>Bali</strong>"
+    },
+    "buttons": {
+      "tutorial": "Quick Tutorial",
+      "logout": "Logout",
+      "report": "Report New Incident",
+      "surf": "AI Surf Report",
+      "support": "Support CityEasy",
+      "copy": "Copy"
+    },
+    "sections": {
+      "mapTitle": "Incident Map (Bali)",
+      "summaryTitle": "Incident Summary",
+      "recentTitle": "Recent Incidents"
+    },
+    "currentTime": "Current time in Bali: {{time}}",
+    "timeAgo": "ago",
+    "reportedOn": "Reported on:",
+    "resolving": "Resolving location...",
+    "noCoords": "No coordinates",
+    "loading": {
+      "logout": "Logging out...",
+      "generic": "Loading..."
+    },
+    "support": {
+      "title": "Support CityEasy",
+      "cta": "Show options",
+      "hide": "Hide",
+      "openWallet": "Open in wallet",
+      "method": { "btc": "Bitcoin", "ln": "Lightning" },
+      "details": "Donations help keep our platform running."
+    },
+    "errors": {
+      "fetchIncidents": "Failed to fetch recent incidents. Please try again later.",
+      "enableLocation": "Failed to get location. Please enable location and try again.",
+      "noGeolocation": "Geolocation is not supported by this browser.",
+      "submit": "Failed to submit the report. Please try again."
+    }
+  },
+  "report": {
+    "title": "Report New Incident",
+    "note": "<strong>Note:</strong> You must <u>enable location access</u> to submit a report.",
+    "typeLabel": "Incident Type:",
+    "descLabel": "Description:",
+    "photoLabel": "Incident photo:",
+    "locationLabel": "Location",
+    "getLocation": "Get current location",
+    "locationOk": "Location set ✓",
+    "locationDenied": "Location permission denied. Enable it in Settings → Privacy → Location Services and try again.",
+    "locationError": "Unable to determine location. Try again or enter it manually.",
+    "selectType": "Select type",
+    "selectPhoto": "Select photo",
+    "changePhoto": "Change photo",
+    "submit": "Submit Report",
+    "closeForm": "Close report form",
+    "submitting": "Submitting...",
+    "errors": {
+      "noType": "Please select an incident type.",
+      "badDescription": "Description is required and max {{max}} characters.",
+      "noLocation": "Unable to get your location. Please try again.",
+      "noPhoto": "Please attach an incident photo.",
+      "submit": "Failed to submit report. Please try again."
+    }
+  },
+  "tutorial": {
+    "close": "Close Tutorial",
+    "slides": {
+      "0": {
+        "title": "Real-Time Incident Map",
+        "content": "See live incidents across Southeast Asia. Colored pins mark police (blue), accidents/traffic (orange), crime (red), disasters (green) and weather alerts (light blue)."
+      },
+      "1": {
+        "title": "Anonymous Incident Reports",
+        "content": "Report incidents in seconds: choose a type, add a short note, share your location and upload a photo. Your anonymous report updates the map for everyone."
+      },
+      "2": {
+        "title": "AI-Powered Safety Insights",
+        "content": "Every 15 min our AI reveals trends, risk zones and travel tips so you can move smarter."
+      },
+      "3": {
+        "title": "Instant AI Assistant",
+        "content": "Ask anything—laws, safe routes, current risks—and get fast answers in your language."
+      },
+      "4": {
+        "title": "Privacy & Data Protection",
+        "content": "Reports are 100 % anonymous and we never store personal data. Share location only when you choose."
+      },
+      "5": {
+        "title": "Traffic & Accident Alerts",
+        "content": "Stay ahead of congestion and accidents. Perfect for locals, tourists and drivers."
+      },
+      "6": {
+        "title": "Weather & Disaster Alerts",
+        "content": "Community-driven alerts for storms, floods or earthquakes keep you ready for sudden hazards."
+      },
+      "7": {
+        "title": "Support CityEasy",
+        "content": "CityEasy is community-driven. Bitcoin or Lightning donations keep servers running and expand coverage."
+      }
+    }
+  },
+  "security": {
+    "title": "CityEasy AI Safety Summary",
+    "latest": "Latest Safety Analysis (updated every 15 min)",
+    "lastUpdate": "Last update: {{date}}",
+    "noReport": "No safety report available.",
+    "askAI": "Ask the AI CityEasy Assistant",
+    "placeholder": "Feel free to ask about the current situation…",
+    "empty": "Please type something before sending.",
+    "errorLoad": "Error loading the safety report. Please try again later.",
+    "errorChat": "Sorry, there was a problem. Try again later."
+  },
+
+  "surf": {
+    "title": "AI Surf Report",
+    "refresh": "updated every 2 h",
+    "hint": "Need fresher details? Ask the chatbot: “How are the waves in Uluwatu?”",
+    "lastFetch": "Last fetch: {{time}} WITA",
+    "waveHeight": "Wave Height",
+    "period": "Period",
+    "swell": "Swell",
+    "dir": "Dir",
+    "wind": "Wind",
+    "powered": "Powered by"
   }
-  
-      
-  
+}

@@ -23,7 +23,7 @@ export default function ProblemSolution() {
             </div>
 
             <h3 className="relative mt-3 text-[1.6rem] font-black tracking-[-0.02em] text-slate-900">
-              {t('home.gapSubtitle', { defaultValue: 'The reality on the ground' })}
+              {t('home.gapSubtitle')}
               <span aria-hidden className="accent-underline-thin absolute -bottom-2 left-0 h-1 w-40 rounded-full" />
             </h3>
 
@@ -47,7 +47,7 @@ export default function ProblemSolution() {
             </div>
 
             <h3 className="relative mt-3 text-[1.6rem] font-black tracking-[-0.02em] text-slate-900">
-              {t('home.solutionSubtitle', { defaultValue: 'A clear and scalable answer' })}
+              {t('home.solutionSubtitle')}
               <span aria-hidden className="accent-underline-thin absolute -bottom-2 left-0 h-1 w-48 rounded-full" />
             </h3>
 

@@ -1,17 +1,18 @@
+// src/components/home/HomeHero.jsx
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-// Dentro de HomeHero.jsx
+// Ciudades del fondo animado
 const CITY_SVGS = ['/bali.svg', '/jakarta.svg', '/bangkok.svg', '/danang.svg', '/singapore.svg', '/kl.svg']
 const ROTATE_MS = 4000   // cambia de ciudad cada 4s
-const FADE_MS = 1200   // crossfade 1.2s
+const FADE_MS = 1200     // crossfade 1.2s
 const SHOW_BLOBS = false
 
 function RotatingCityLogos() {
   const [idx, setIdx] = React.useState(0)
   const [cycleGlow, setCycleGlow] = React.useState(false)
 
-  // Preload (sin parpadeos)
+  // Preload
   React.useEffect(() => {
     CITY_SVGS.forEach(src => { const i = new Image(); i.src = src })
   }, [])
@@ -22,7 +23,7 @@ function RotatingCityLogos() {
     return () => clearInterval(step)
   }, [])
 
-  // Glow muy sutil al cerrar el carrusel (reinicio elegante)
+  // Glow muy sutil al cerrar el carrusel
   React.useEffect(() => {
     const CYCLE_MS = CITY_SVGS.length * ROTATE_MS
     const tick = () => {
@@ -38,7 +39,7 @@ function RotatingCityLogos() {
       {/* Gradiente base */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white" />
 
-      {/* Stack de SVGs con crossfade + Ken Burns sutil (sin rotación de reloj) */}
+      {/* Stack de SVGs con crossfade + Ken Burns sutil */}
       <div className="absolute left-[-6%] top-1/2 hidden h-[80vh] w-[44vw] -translate-y-1/2 md:block" style={{ '--fade-ms': `${FADE_MS}ms` }}>
         {CITY_SVGS.map((src, i) => (
           <img
@@ -51,7 +52,7 @@ function RotatingCityLogos() {
         ))}
       </div>
 
-      {/* Velo suave al cerrar vuelta (elimina cualquier “seam”) */}
+      {/* Velo suave al cerrar vuelta */}
       <div
         className={`absolute inset-0 pointer-events-none transition-opacity duration-200 ${cycleGlow ? 'opacity-[0.06]' : 'opacity-0'}`}
         style={{ background: 'radial-gradient(60% 60% at 50% 50%, rgba(2,6,23,0.40) 0%, rgba(2,6,23,0.0) 60%)' }}
@@ -67,6 +68,33 @@ function RotatingCityLogos() {
   )
 }
 
+/** Números con efecto “slot machine” rápido y periódico */
+function QuickTicker({ target, className = '' }) {
+  const targetStr = String(target)
+  const [display, setDisplay] = React.useState(targetStr)
+
+  React.useEffect(() => {
+    const scrambleOnce = () => {
+      const chars = targetStr.split('')
+      const start = Date.now()
+      const duration = 800 // 0.8s
+      const id = setInterval(() => {
+        const elapsed = Date.now() - start
+        if (elapsed >= duration) {
+          clearInterval(id)
+          setDisplay(targetStr)
+          return
+        }
+        setDisplay(chars.map(c => (/\d/.test(c) ? String(Math.floor(Math.random() * 10)) : c)).join(''))
+      }, 50)
+    }
+    scrambleOnce()
+    const loop = setInterval(scrambleOnce, 3000)
+    return () => clearInterval(loop)
+  }, [targetStr])
+
+  return <span className={`tabular-nums ${className}`}>{display}</span>
+}
 
 export default function HomeHero({ onCTA, isLoading }) {
   const { t } = useTranslation()
@@ -86,7 +114,7 @@ export default function HomeHero({ onCTA, isLoading }) {
             CityEasy — {t('home.hero.badge', { defaultValue: 'Real-time urban safety' })}
           </div>
 
-          {/* Título negro con presencia + subrayado animado */}
+          {/* Título */}
           <h1 className="mt-3 text-[clamp(2.3rem,6vw,4.6rem)] font-black leading-[1.02] tracking-[-0.015em] text-slate-900">
             <span className="block">{t('home.hero.title.part1')}</span>
             <span className="relative block">
@@ -115,7 +143,7 @@ export default function HomeHero({ onCTA, isLoading }) {
             dangerouslySetInnerHTML={{ __html: t('home.hero.tagline2') }}
           />
 
-          {/* CTA sólida */}
+          {/* CTA */}
           <button
             onClick={onCTA}
             disabled={isLoading}
@@ -151,7 +179,7 @@ export default function HomeHero({ onCTA, isLoading }) {
           </ul>
         </div>
 
-        {/* Snapshot derecha */}
+        {/* Snapshot derecha (mejorado) */}
         <div>
           <div className="mx-auto w-full max-w-md rounded-3xl border border-slate-200/70 bg-white/70 p-5 shadow-[0_10px_40px_rgba(2,6,23,0.06)] backdrop-blur-md md:ml-auto">
             <div className="rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-4">
@@ -162,24 +190,27 @@ export default function HomeHero({ onCTA, isLoading }) {
                   {t('home.hero.badge', { defaultValue: 'Real-time' })}
                 </span>
               </div>
-              <div className="grid grid-cols-3 gap-3 text-center">
+
+              {/* métricas con ticker */}
+              <div className="grid grid-cols-3 gap-3 text-center" aria-live="polite">
                 <div className="rounded-xl border border-slate-200 bg-white px-3 py-2">
                   <div className="text-xs font-semibold text-slate-500">{t('home.hero.metric1', { defaultValue: 'Cities' })}</div>
-                  <div className="text-lg font-black text-slate-900">6</div>
+                  <QuickTicker target="6" className="text-lg font-black text-slate-900" />
                 </div>
                 <div className="rounded-xl border border-slate-200 bg-white px-3 py-2">
                   <div className="text-xs font-semibold text-slate-500">{t('home.hero.metric2', { defaultValue: 'Reports/day' })}</div>
-                  <div className="text-lg font-black text-slate-900">120+</div>
+                  <QuickTicker target="120+" className="text-lg font-black text-slate-900" />
                 </div>
                 <div className="rounded-xl border border-slate-200 bg-white px-3 py-2">
                   <div className="text-xs font-semibold text-slate-500">{t('home.hero.metric3', { defaultValue: 'Response' })}</div>
-                  <div className="text-lg font-black text-slate-900">~15m</div>
+                  <QuickTicker target="~15m" className="text-lg font-black text-slate-900" />
                 </div>
               </div>
             </div>
 
-            <div className="mt-4 aspect-[4/3] overflow-hidden rounded-2xl border border-slate-200 bg-white/60">
-              <img src="/city.svg" alt="CityEasy" className="h-full w-full scale-[1.2] object-contain opacity-[0.18]" />
+            {/* imagen más visible */}
+            <div className="mt-4 aspect-[4/3] overflow-hidden rounded-2xl border border-slate-200 bg-white/40">
+              <img src="/city.svg" alt="CityEasy" className="h-full w-full scale-[1.08] object-contain opacity-160" />
             </div>
           </div>
         </div>
@@ -187,4 +218,5 @@ export default function HomeHero({ onCTA, isLoading }) {
     </section>
   )
 }
+
 
