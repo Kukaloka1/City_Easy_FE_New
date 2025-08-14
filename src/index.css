@@ -185,6 +185,23 @@
   .ce-logoKB{ transition: none !important; transform: none !important; }
 }
 
+/* Subrayado fino para headings de tarjetas */
+.accent-underline-thin{
+  background: linear-gradient(90deg,#10b981,#2563eb,#10b981);
+  background-size: 200% 100%;
+  animation: ce-stripe 3s linear infinite;
+  filter: drop-shadow(0 4px 10px rgba(16,185,129,.18));
+}
+@keyframes ce-stripe { to { background-position: 200% 0; } }
 
+/* Giro 1 sola vez + glow */
+@keyframes hiw-rotate-once { from { transform: rotate(0) } to { transform: rotate(360deg) } }
+.hiw-spin-once { animation: hiw-rotate-once 0.9s cubic-bezier(.22,1,.36,1) 1; }
+.hiw-icon-glow  { filter: drop-shadow(0 0 12px rgba(66,133,244,.35)); }
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce){
+  .hiw-spin-once { animation: none !important; }
+}
 
 

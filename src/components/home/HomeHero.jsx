@@ -2,9 +2,10 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 
 // Dentro de HomeHero.jsx
-const CITY_SVGS = ['/bali.svg','/jakarta.svg','/bangkok.svg','/danang.svg','/singapore.svg','/kl.svg']
+const CITY_SVGS = ['/bali.svg', '/jakarta.svg', '/bangkok.svg', '/danang.svg', '/singapore.svg', '/kl.svg']
 const ROTATE_MS = 4000   // cambia de ciudad cada 4s
-const FADE_MS   = 1200   // crossfade 1.2s
+const FADE_MS = 1200   // crossfade 1.2s
+const SHOW_BLOBS = false
 
 function RotatingCityLogos() {
   const [idx, setIdx] = React.useState(0)
@@ -56,7 +57,12 @@ function RotatingCityLogos() {
         style={{ background: 'radial-gradient(60% 60% at 50% 50%, rgba(2,6,23,0.40) 0%, rgba(2,6,23,0.0) 60%)' }}
       />
 
-      {/* Blobs de profundidad */}
+      {SHOW_BLOBS && (
+        <>
+          <div className="absolute -left-24 -top-24 h-80 w-80 rounded-full bg-gradient-to-br from-emerald-300/40 to-blue-400/40 blur-3xl" />
+          <div className="absolute -right-24 bottom-[-4rem] h-80 w-80 rounded-full bg-gradient-to-br from-blue-400/40 to-emerald-300/40 blur-3xl" />
+        </>
+      )}
     </div>
   )
 }
